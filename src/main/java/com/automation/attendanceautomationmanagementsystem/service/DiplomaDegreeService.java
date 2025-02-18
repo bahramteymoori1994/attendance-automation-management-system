@@ -1,4 +1,4 @@
-package com.automation.attendanceautomationmanagementsystem.service.impl;
+package com.automation.attendanceautomationmanagementsystem.service;
 
 import com.automation.attendanceautomationmanagementsystem.model.DiplomaDegree;
 
