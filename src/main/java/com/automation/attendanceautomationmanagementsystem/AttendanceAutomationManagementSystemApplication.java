@@ -6,30 +6,13 @@ import com.automation.attendanceautomationmanagementsystem.model.enums.WorkShift
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
+@EnableJpaRepositories
 public class AttendanceAutomationManagementSystemApplication {
 
-//    private static WorkShiftController workShiftController;
-//
-//    public AttendanceAutomationManagementSystemApplication(WorkShiftController workShiftController) {
-//        this.workShiftController = workShiftController;
-//    }
-
-    @Autowired
-    private static WorkShiftController workShiftController;
-
     public static void main(String[] args) {
-
-//        WorkShift workShift = WorkShift.builder()
-//                .name("managing")
-//                .workShiftCode("4465")
-//                .workShiftType(WorkShiftType.NOON)
-//                .build();
-//
-//        AttendanceAutomationManagementSystemApplication.workShiftController.save(workShift);
-//        System.out.println(workShiftController.findAll());
-
         SpringApplication.run(AttendanceAutomationManagementSystemApplication.class, args);
     }
 }

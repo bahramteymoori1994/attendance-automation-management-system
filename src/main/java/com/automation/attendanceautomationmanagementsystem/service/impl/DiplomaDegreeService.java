@@ -1,6 +1,6 @@
-package com.automation.attendanceautomationmanagementsystem.service;
+package com.automation.attendanceautomationmanagementsystem.service.impl;
 
-import com.automation.attendanceautomationmanagementsystem.repository.DiplomaDegree;
+import com.automation.attendanceautomationmanagementsystem.model.DiplomaDegree;
 
 import java.util.List;
 

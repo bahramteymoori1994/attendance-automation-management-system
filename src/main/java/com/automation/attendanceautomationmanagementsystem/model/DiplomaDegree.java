@@ -1,18 +1,18 @@
-package com.automation.attendanceautomationmanagementsystem.model.enums;
+package com.automation.attendanceautomationmanagementsystem.model;
 
-import com.automation.attendanceautomationmanagementsystem.model.Degree;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.*;
 
 @Entity(name = "diplomaDegreeEntity")
+@Table(name = "diploma_degree")
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Table(name = "diploma_degree")
+@Builder
 public class DiplomaDegree extends Degree
 {
     @Column(name = "SCHOOL_NAME", nullable = false, length = 50)
