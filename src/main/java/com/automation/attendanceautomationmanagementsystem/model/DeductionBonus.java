@@ -1,4 +1,4 @@
-package com.automation.attendanceautomationmanagementsystem.controller;
+package com.automation.attendanceautomationmanagementsystem.model;
 
 import com.automation.attendanceautomationmanagementsystem.model.enums.DeductionType;
 import jakarta.persistence.*;
