@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-public class AbstractBaseController<E, S extends AbstractBaseServiceImpl<E, ?>>
+public abstract class AbstractBaseController<E, S extends AbstractBaseServiceImpl<E, ?>>
 {
     private final S service;
 
