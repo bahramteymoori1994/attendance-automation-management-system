@@ -2,26 +2,24 @@ package com.automation.attendanceautomationmanagementsystem.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
+@Entity(name = "drivingLicenseEntity")
 @Setter
-@Builder
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @ToString
-@EntityListeners(AuditingEntityListener.class)
-
-@Entity(name="drivingLicenseEntity")
-@Table(name="driving_license_tbl")
-public class DrivingLicense {
+@Builder
+@Table(name = "driving_license")
+@SequenceGenerator(name = "DRIVING_LICENSE_GENERATOR", sequenceName = "DRIVING_LICENSE_SEQ",
+allocationSize = 10, initialValue = 1)
+public class DrivingLicense
+{
     @Id
-    @SequenceGenerator(name = "drivingLicenseSeq", sequenceName = "driving_license_seq", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "drivingLicenseSeq")
-    @Column(name = "driving_license_id")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "DRIVING_LICENSE_GENERATOR")
+    @Column(name = "DRIVING_LICENSE_ID")
     private Long id;
 
     @Column(name = "serial_number", nullable = false, length = 10)
@@ -33,6 +31,6 @@ public class DrivingLicense {
     @Column(name = "creation_date", nullable = false)
     private LocalDateTime creationDate;
 
-    @Column(name = "level")
-    private boolean level;
+    @Column(name = "level_license")
+    private Boolean levelLicense;
 }
