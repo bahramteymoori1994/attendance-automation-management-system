@@ -47,4 +47,8 @@ public class ExtraShiftTime
 
     @Column(name = "DESCRIPTION", length = 2000)
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "USER_ID", referencedColumnName = "id")
+    private User user;
 }
