@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.util.List;
+
 @Entity(name = "workShiftEntity")
 @Setter
 @Getter
@@ -35,4 +37,24 @@ public class WorkShift
 
     @Column(name = "DESCRIPTION", length = 2000)
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "DEPARTMENT_ID", referencedColumnName = "id")
+    private Department department;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @JoinTable(name = "USER_WORK_SHIFT", joinColumns = @JoinColumn(name = "USER_ID"),
+    inverseJoinColumns = @JoinColumn(name = "WORK_SHIFT_ID"), foreignKey = @ForeignKey(name = "FK_USER_WORK_SHIFT"),
+    inverseForeignKey = @ForeignKey(name = "FK_INVERSE_USER_WORK_SHIFT"))
+    private List<User> users;
+
+    @ManyToOne
+    @JoinColumn(name = "ORGANIZATION_ID", referencedColumnName = "id")
+    private Organization organization;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @JoinTable(name = "SECTION_WORK_SHIFT", joinColumns = @JoinColumn(name = "SECTION_ID"),
+    inverseJoinColumns = @JoinColumn(name = "WORK_SHIFT_ID"), foreignKey = @ForeignKey(name = "FK_SECTION_WORK_SHIFT"),
+    inverseForeignKey = @ForeignKey(name = "FK_INVERSE_SECTION_WORK_SHIFT"))
+    private List<Section> sections;
 }

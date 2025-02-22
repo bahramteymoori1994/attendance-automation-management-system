@@ -33,4 +33,12 @@ public class DeductionBonus
 
     @Column(name = "DESCRIPTION", length = 2000)
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "TIME_SHEET_ID", referencedColumnName = "id")
+    private TimeSheet timeSheet;
+
+    @ManyToOne
+    @JoinColumn(name = "USER_ID", referencedColumnName = "id")
+    private User user;
 }

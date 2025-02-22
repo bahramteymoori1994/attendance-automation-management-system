@@ -6,6 +6,7 @@ import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity(name = "missionEntity")
 @Setter
@@ -50,4 +51,10 @@ public class Mission
 
     @Column(name = "DESCRIPTION", length = 2000)
     private String description;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @JoinTable(name = "USER_MISSION", joinColumns = @JoinColumn(name = "USER_ID"),
+    inverseJoinColumns = @JoinColumn(name = "MISSION_ID"), foreignKey = @ForeignKey(name = "FK_USER_MISSION"),
+    inverseForeignKey = @ForeignKey(name = "FK_INVERSE_USER_MISSION"))
+    private List<User> users;
 }

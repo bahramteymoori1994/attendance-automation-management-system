@@ -7,6 +7,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 @Entity(name = "timeShiftEntity")
 @Setter
@@ -41,4 +42,14 @@ public class TimeShift
 
     @Column(name = "DESCRIPTION", length = 2000)
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "WORK_SHIFT_ID")
+    private WorkShift workShift;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @JoinTable(name = "USER_TIME_SHIFT", joinColumns = @JoinColumn(name = "USER_ID"),
+    inverseJoinColumns = @JoinColumn(name = "TIME_SHIFT_ID"), foreignKey = @ForeignKey(name = "FK_USER_TIME_SHIFT"),
+    inverseForeignKey = @ForeignKey(name = "FK_INVERSE_USER_TIME_SHIFT"))
+    private List<User> users;
 }

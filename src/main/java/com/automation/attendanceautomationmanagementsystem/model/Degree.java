@@ -43,4 +43,8 @@ public abstract class Degree
 
     @Column(name = "GRADUATION_DATE", nullable = false)
     private LocalDate graduationDate;
+
+    @ManyToOne
+    @JoinColumn(name = "PERSON_ID", referencedColumnName = "id")
+    private Person person;
 }
