@@ -3,6 +3,7 @@ package com.automation.attendanceautomationmanagementsystem.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity(name = "drivingLicenseEntity")
@@ -26,7 +27,7 @@ public class DrivingLicense
     private String serialNumber;
 
     @Column(name = "validity_period", nullable = false)
-    private LocalDateTime validityPeriod;
+    private LocalDate validityPeriod;
 
     @Column(name = "creation_date", nullable = false)
     private LocalDateTime creationDate;

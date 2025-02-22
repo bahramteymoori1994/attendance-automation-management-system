@@ -2,7 +2,6 @@ package com.automation.attendanceautomationmanagementsystem.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -10,8 +9,6 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Setter
 @Builder
 @ToString
-@EntityListeners(AuditingEntityListener.class)
-
 @Entity(name="departmentEntity")
 @Table(name="department_tbl")
 public class Department {
