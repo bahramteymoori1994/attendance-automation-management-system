@@ -4,7 +4,6 @@ import com.automation.attendanceautomationmanagementsystem.model.TimeSheet;
 import com.automation.attendanceautomationmanagementsystem.model.enums.UserStatus;
 import com.automation.attendanceautomationmanagementsystem.repository.TimeSheetRepository;
 import org.springframework.stereotype.Service;
-
 import java.time.DayOfWeek;
 import java.time.LocalTime;
 import java.util.List;
@@ -19,38 +18,31 @@ public class TimeSheetServiceImpl extends AbstractBaseServiceImpl<TimeSheet, Tim
         this.timeSheetRepository = timeSheetRepository;
     }
 
-    public List<TimeSheet> findTimeSheetByTimeSheetTitle(String timeSheetTitle)
-    {
+    public List<TimeSheet> findTimeSheetByTimeSheetTitle(String timeSheetTitle) {
         return timeSheetRepository.findTimeSheetByTimeSheetTitle(timeSheetTitle);
     }
 
-    public List<TimeSheet> findTimeSheetsByDayWeek(DayOfWeek dayWeek)
-    {
+    public List<TimeSheet> findTimeSheetsByDayWeek(DayOfWeek dayWeek) {
         return timeSheetRepository.findTimeSheetsByDayWeek(dayWeek);
     }
 
-    public List<TimeSheet> findTimeSheetsByTimeSheetDate(LocalTime timeSheetDate)
-    {
+    public List<TimeSheet> findTimeSheetsByTimeSheetDate(LocalTime timeSheetDate) {
         return timeSheetRepository.findTimeSheetsByTimeSheetDate(timeSheetDate);
     }
 
-    public List<TimeSheet> findTimeSheetsByUserStatus(UserStatus userStatus)
-    {
+    public List<TimeSheet> findTimeSheetsByUserStatus(UserStatus userStatus) {
         return timeSheetRepository.findTimeSheetsByUserStatus(userStatus);
     }
 
-    public List<TimeSheet> findTimeSheetsByEntryTime(LocalTime entryTime)
-    {
+    public List<TimeSheet> findTimeSheetsByEntryTime(LocalTime entryTime) {
         return timeSheetRepository.findTimeSheetsByEntryTime(entryTime);
     }
 
-    public List<TimeSheet> findTimeSheetsByStartTime(LocalTime startTime)
-    {
+    public List<TimeSheet> findTimeSheetsByStartTime(LocalTime startTime) {
         return timeSheetRepository.findTimeSheetsByStartTime(startTime);
     }
 
-    public List<TimeSheet> findTimeSheetsByExitTime(LocalTime endTime)
-    {
+    public List<TimeSheet> findTimeSheetsByExitTime(LocalTime endTime) {
         return timeSheetRepository.findTimeSheetsByExitTime(endTime);
     }
 }
