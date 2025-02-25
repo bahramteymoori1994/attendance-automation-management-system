@@ -44,7 +44,7 @@ public class TimeShift
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "WORK_SHIFT_ID")
+    @JoinColumn(name = "WORK_SHIFT_ID", referencedColumnName = "WORK_SHIFT_ID")
     private WorkShift workShift;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)

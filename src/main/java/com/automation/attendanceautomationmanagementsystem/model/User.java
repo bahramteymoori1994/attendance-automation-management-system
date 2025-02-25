@@ -19,8 +19,14 @@ import java.util.Set;
 
 @Entity(name="userEntity")
 @Table(name="user_tbl")
+@SequenceGenerator(name = "USER_GENERATOR", sequenceName = "USER_SEQ", initialValue = 1, allocationSize = 10)
 public class User {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "USER_GENERATOR")
+    @Column(name = "USER_ID")
+    private Long id;
+
     @Column(name = "user_name", unique = true, nullable = false, length = 50)
     private String username;
 
@@ -34,32 +40,22 @@ public class User {
     @Column(name = "last_login", nullable = false)
     private LocalDateTime lastLogin;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "user_role_tbl",
-            joinColumns = @JoinColumn(name = "username"),
-            inverseJoinColumns = @JoinColumn(name = "role_name"),
-            foreignKey = @ForeignKey(name = "fk_user_role"),
-            inverseForeignKey = @ForeignKey(name = "fk_inverse_user_role")
-    )
-    private Set<Role> roleSet;
-
-    public void addRole(Role role){
-        if(roleSet == null){
-            roleSet = new HashSet<>();
-        }
-        roleSet.add(role);
-    }
+//    public void addRole(Role role){
+//        if(roleSet == null){
+//            roleSet = new HashSet<>();
+//        }
+//        roleSet.add(role);
+//    }
 
     @ManyToOne
-    @JoinColumn(name = "ORGANIZATION_ID", referencedColumnName = "id")
-    private Organization organizationList;
+    @JoinColumn(name = "ORGANIZATION_ID", referencedColumnName = "organization_id")
+    private Organization organization;
 
     @ManyToOne
-    @JoinColumn(name = "DEPARTMENT_ID", referencedColumnName = "id")
-    private Department departmentList;
+    @JoinColumn(name = "DEPARTMENT_ID", referencedColumnName = "department_id")
+    private Department department;
 
     @OneToOne
-    @JoinColumn(name = "PERSON_ID", referencedColumnName = "id")
+    @JoinColumn(name = "PERSON_ID", referencedColumnName = "person_id")
     private Person person;
 }

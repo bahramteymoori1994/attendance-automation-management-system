@@ -26,6 +26,6 @@ public class Permission {
     private String permission;
 
     @ManyToOne
-    @JoinColumn(name = "ROLE_ID", referencedColumnName = "id")
+    @JoinColumn(name = "ROLE_ID", referencedColumnName = "ROLE_ID")
     private Role role;
 }

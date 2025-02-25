@@ -37,6 +37,6 @@ public class Department {
 
     //todo check relation
     @ManyToOne
-    @JoinColumn(name = "ORGANIZATION_ID", referencedColumnName = "id")
+    @JoinColumn(name = "ORGANIZATION_ID", referencedColumnName = "organization_id")
     private Organization organization;
 }

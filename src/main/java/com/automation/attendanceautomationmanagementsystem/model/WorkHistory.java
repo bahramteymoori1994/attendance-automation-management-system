@@ -46,7 +46,7 @@ public class WorkHistory {
     private boolean collaborationType;
 
     @ManyToOne
-    @JoinColumn(name = "PERSON_ID", referencedColumnName = "id")
+    @JoinColumn(name = "PERSON_ID", referencedColumnName = "person_id")
     private Person person;
 
 }

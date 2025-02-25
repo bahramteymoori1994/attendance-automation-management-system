@@ -15,11 +15,16 @@ import java.util.Set;
 @Builder
 @ToString
 @EntityListeners(AuditingEntityListener.class)
-
+@SequenceGenerator(name = "ROLE_GENERATOR", sequenceName = "ROLE_SEQ", initialValue = 1, allocationSize = 10)
 @Entity(name="roleEntity")
 @Table(name="role_tbl")
 public class Role {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "ROLE_GENERATOR")
+    @Column(name = "ROLE_ID")
+    private Long id;
+
     @Column(name = "role_name", nullable = false, length = 30)
     private String name;
 

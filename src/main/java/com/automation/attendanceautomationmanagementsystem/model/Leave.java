@@ -54,6 +54,6 @@ public class Leave
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "USER_ID", referencedColumnName = "id")
+    @JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID")
     private User user;
 }

@@ -35,6 +35,6 @@ public class DeductionBonus
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "TIME_SHEET_ID", referencedColumnName = "id")
+    @JoinColumn(name = "TIME_SHEET_ID", referencedColumnName = "TIME_SHEET_ID")
     private TimeSheet timeSheet;
 }

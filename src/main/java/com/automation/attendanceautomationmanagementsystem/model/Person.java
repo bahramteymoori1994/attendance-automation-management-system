@@ -13,13 +13,13 @@ import java.time.LocalDate;
 @Builder
 @ToString
 @EntityListeners(AuditingEntityListener.class)
-
+@SequenceGenerator(name = "personSeq", sequenceName = "person_seq", initialValue = 1, allocationSize = 10)
 @Entity(name="personEntity")
 @Table(name="person_tbl")
 public class Person {
+
     @Id
-    @SequenceGenerator(name = "personSeq", sequenceName = "person_seq", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "personSeq")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "personSeq")
     @Column(name = "person_id")
     private Long id;
 
@@ -46,12 +46,4 @@ public class Person {
 
     @Column(name = "post_code", nullable = false, length = 4)
     private String postCode;
-
-    @OneToOne
-    @JoinColumn(
-            name = "username",
-            foreignKey = @ForeignKey(name = "fk_profile_user")
-    )
-    private User user;
-
 }

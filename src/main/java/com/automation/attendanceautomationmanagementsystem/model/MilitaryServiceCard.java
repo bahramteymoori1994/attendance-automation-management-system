@@ -34,9 +34,6 @@ public class MilitaryServiceCard {
     private LocalDate creationDate;
 
     @OneToOne
-    @JoinColumn(
-            name = "person",
-            foreignKey = @ForeignKey(name = "fk_military_person")
-    )
+    @JoinColumn(name = "PERSON_ID", referencedColumnName = "person_id")
     private Person person;
 }

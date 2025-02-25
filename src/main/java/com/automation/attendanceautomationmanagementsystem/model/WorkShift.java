@@ -39,7 +39,7 @@ public class WorkShift
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "DEPARTMENT_ID", referencedColumnName = "id")
+    @JoinColumn(name = "DEPARTMENT_ID", referencedColumnName = "department_id")
     private Department department;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
@@ -49,7 +49,7 @@ public class WorkShift
     private List<User> users;
 
     @ManyToOne
-    @JoinColumn(name = "ORGANIZATION_ID", referencedColumnName = "id")
+    @JoinColumn(name = "ORGANIZATION_ID", referencedColumnName = "organization_id")
     private Organization organization;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)

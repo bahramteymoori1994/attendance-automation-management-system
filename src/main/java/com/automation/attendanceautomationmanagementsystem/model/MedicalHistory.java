@@ -28,6 +28,6 @@ public class MedicalHistory {
     private String previousIllness;
 
     @ManyToOne
-    @JoinColumn(name = "PERSON_ID", referencedColumnName = "id")
+    @JoinColumn(name = "PERSON_ID", referencedColumnName = "person_id")
     private Person person;
 }

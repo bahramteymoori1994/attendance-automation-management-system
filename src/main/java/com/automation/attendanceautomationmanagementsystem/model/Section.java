@@ -43,7 +43,7 @@ public class Section {
     private boolean accessLevel;
 
     @ManyToOne
-    @JoinColumn(name = "DEPARTMENT_ID", referencedColumnName = "id")
+    @JoinColumn(name = "DEPARTMENT_ID", referencedColumnName = "department_id")
     private Department department;
 
     @ManyToMany(fetch = FetchType.EAGER)
