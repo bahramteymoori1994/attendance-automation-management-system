@@ -64,4 +64,8 @@ public class TimeSheet
 
     @Column(name = "DESCRIPTION", length = 2000)
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID")
+    private User user;
 }
