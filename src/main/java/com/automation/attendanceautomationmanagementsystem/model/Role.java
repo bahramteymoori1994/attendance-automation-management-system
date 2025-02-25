@@ -22,7 +22,7 @@ public class Role {
     @Id
     @Column(name = "role_name", nullable = false, length = 30)
     private String name;
-    
+
     // Constructor to handle deserialization from string
     public Role(String name) {
         this.name = name;

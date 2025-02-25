@@ -16,8 +16,8 @@ public class TimeSheetController extends AbstractBaseController<TimeSheet, TimeS
 {
     private final TimeSheetServiceImpl timeSheetServiceImpl;
 
-    public TimeSheetController(TimeSheetServiceImpl repository, TimeSheetServiceImpl timeSheetServiceImpl) {
-        super(repository);
+    public TimeSheetController(TimeSheetServiceImpl service, TimeSheetServiceImpl timeSheetServiceImpl) {
+        super(service);
         this.timeSheetServiceImpl = timeSheetServiceImpl;
     }
 

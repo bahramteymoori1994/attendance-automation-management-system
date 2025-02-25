@@ -1,7 +1,6 @@
 package com.automation.attendanceautomationmanagementsystem.controller;
 
 import com.automation.attendanceautomationmanagementsystem.model.AssociatedDegree;
-import com.automation.attendanceautomationmanagementsystem.model.AssociatedDegree;
 import com.automation.attendanceautomationmanagementsystem.service.impl.AssociatedDegreeServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
