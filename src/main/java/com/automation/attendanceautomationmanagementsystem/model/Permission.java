@@ -24,4 +24,8 @@ public class Permission {
 
     @Column(name = "permission", nullable = false, unique = true, length = 100)
     private String permission;
+
+    @ManyToOne
+    @JoinColumn(name = "ROLE_ID", referencedColumnName = "id")
+    private Role role;
 }

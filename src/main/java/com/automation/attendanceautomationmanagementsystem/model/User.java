@@ -51,12 +51,15 @@ public class User {
         roleSet.add(role);
     }
 
-    //todo check relation
-    @OneToMany(mappedBy = "user")
-    private List<Organization> organizationList;
+    @ManyToOne
+    @JoinColumn(name = "ORGANIZATION_ID", referencedColumnName = "id")
+    private Organization organizationList;
 
-    //todo check relation
-    @OneToMany(mappedBy = "user")
-    private List<Department> departmentList;
+    @ManyToOne
+    @JoinColumn(name = "DEPARTMENT_ID", referencedColumnName = "id")
+    private Department departmentList;
 
+    @OneToOne
+    @JoinColumn(name = "PERSON_ID", referencedColumnName = "id")
+    private Person person;
 }

@@ -36,6 +36,7 @@ public class Department {
     private String task;
 
     //todo check relation
-    @OneToMany(mappedBy = "department")
-    private List<Organization> organizationList;
+    @ManyToOne
+    @JoinColumn(name = "ORGANIZATION_ID", referencedColumnName = "id")
+    private Organization organization;
 }

@@ -42,10 +42,9 @@ public class Section {
     @Column(name = "access_level", nullable = false)
     private boolean accessLevel;
 
-    //todo check relation
-    @OneToMany(mappedBy = "section")
-    private List<Department> departmentList;
-
+    @ManyToOne
+    @JoinColumn(name = "DEPARTMENT_ID", referencedColumnName = "id")
+    private Department department;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
