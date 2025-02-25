@@ -47,11 +47,11 @@ public class Person {
     @Column(name = "post_code", nullable = false, length = 4)
     private String postCode;
 
-//    @OneToOne
-//    @JoinColumn(
-//            name = "username",
-//            foreignKey = @ForeignKey(name = "fk_profile_user")
-//    )
-//    private User user;
+    @OneToOne
+    @JoinColumn(
+            name = "username",
+            foreignKey = @ForeignKey(name = "fk_profile_user")
+    )
+    private User user;
 
 }

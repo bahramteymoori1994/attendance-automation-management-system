@@ -27,4 +27,7 @@ public class MedicalHistory {
     @Column(name = "previous_illness", length = 50)
     private String previousIllness;
 
+    @ManyToOne
+    @JoinColumn(name = "PERSON_ID", referencedColumnName = "id")
+    private Person person;
 }

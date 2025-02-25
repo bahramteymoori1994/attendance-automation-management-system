@@ -34,4 +34,11 @@ public class DrivingLicense
 
     @Column(name = "level_license")
     private Boolean levelLicense;
+
+    @OneToOne
+    @JoinColumn(
+            name = "person",
+            foreignKey = @ForeignKey(name = "fk_driving_license_person")
+    )
+    private Person person;
 }

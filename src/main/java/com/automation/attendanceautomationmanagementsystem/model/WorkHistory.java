@@ -5,6 +5,7 @@ import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -43,4 +44,9 @@ public class WorkHistory {
 
     @Column(name = "collaboration_type", nullable = false)
     private boolean collaborationType;
+
+    @ManyToOne
+    @JoinColumn(name = "PERSON_ID", referencedColumnName = "id")
+    private Person person;
+
 }

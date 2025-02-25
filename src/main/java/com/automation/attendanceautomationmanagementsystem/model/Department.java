@@ -3,6 +3,8 @@ package com.automation.attendanceautomationmanagementsystem.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -33,4 +35,7 @@ public class Department {
     @Column(name = "task", length = 50)
     private String task;
 
+    //todo check relation
+    @OneToMany(mappedBy = "department")
+    private List<Organization> organizationList;
 }

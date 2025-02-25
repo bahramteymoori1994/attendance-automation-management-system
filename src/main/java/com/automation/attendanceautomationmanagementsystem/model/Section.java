@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.util.List;
+import java.util.Set;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -38,4 +41,20 @@ public class Section {
 
     @Column(name = "access_level", nullable = false)
     private boolean accessLevel;
+
+    //todo check relation
+    @OneToMany(mappedBy = "section")
+    private List<Department> departmentList;
+
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "section_user_tbl",
+            joinColumns = @JoinColumn(name = "section_name"),
+            inverseJoinColumns = @JoinColumn(name = "user_name"),
+            foreignKey = @ForeignKey(name = "fk_section_user"),
+            inverseForeignKey = @ForeignKey(name = "fk_inverse_section_user")
+    )
+    private Set<User> userSet;
+
 }

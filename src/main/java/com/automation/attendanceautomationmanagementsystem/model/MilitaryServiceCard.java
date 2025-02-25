@@ -32,4 +32,11 @@ public class MilitaryServiceCard {
     @Column(name = "creation_date", nullable = false)
     @Temporal(value = TemporalType.DATE)
     private LocalDate creationDate;
+
+    @OneToOne
+    @JoinColumn(
+            name = "person",
+            foreignKey = @ForeignKey(name = "fk_military_person")
+    )
+    private Person person;
 }

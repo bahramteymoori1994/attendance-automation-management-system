@@ -38,4 +38,8 @@ public class BankAccount {
 
     @Column(name = "expired_date", nullable = false)
     private LocalDateTime expiredDate;
+
+    @ManyToOne
+    @JoinColumn(name = "PERSON_ID", referencedColumnName = "id")
+    private Person person;
 }
