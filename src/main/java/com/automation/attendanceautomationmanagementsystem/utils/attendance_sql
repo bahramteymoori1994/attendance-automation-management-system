@@ -1,0 +1,749 @@
+create global temporary table TEST.HTE_DIPLOMA_DEGREE
+(
+    GRADUATION_DATE DATE,
+    RN_             NUMBER(10) not null
+        primary key,
+    YEAR_ENTERING   NUMBER(10),
+    DEGREE_ID       NUMBER(19),
+    OVERALL_GRADE   FLOAT(53),
+    PERSON_ID       NUMBER(19),
+    DEGREE_CODE     VARCHAR2(10 char),
+    STUDENT_NUMBER  VARCHAR2(10 char),
+    CITY_STUDY      VARCHAR2(50 char),
+    MAJOR           VARCHAR2(50 char),
+    SCHOOL_NAME     VARCHAR2(50 char),
+    UNIVERSITY_NAME VARCHAR2(50 char)
+)
+    on commit delete rows
+/
+
+create global temporary table TEST.HTE_DRIVING_LICENSE
+(
+    LEVEL_LICENSE      NUMBER(1),
+    RN_                NUMBER(10) not null
+        primary key,
+    VALIDITY_PERIOD    DATE,
+    CREATION_DATE      TIMESTAMP(6),
+    DRIVING_LICENSE_ID NUMBER(19),
+    PERSON_ID          NUMBER(19),
+    SERIAL_NUMBER      VARCHAR2(10 char)
+)
+    on commit delete rows
+/
+
+create global temporary table TEST.HTE_PHD_DEGREE
+(
+    GRADUATION_DATE DATE,
+    RN_             NUMBER(10) not null
+        primary key,
+    YEAR_ENTERING   NUMBER(10),
+    DEGREE_ID       NUMBER(19),
+    OVERALL_GRADE   FLOAT(53),
+    PERSON_ID       NUMBER(19),
+    DEGREE_CODE     VARCHAR2(10 char),
+    STUDENT_NUMBER  VARCHAR2(10 char),
+    CITY_STUDY      VARCHAR2(50 char),
+    MAJOR           VARCHAR2(50 char),
+    UNIVERSITY_NAME VARCHAR2(50 char)
+)
+    on commit delete rows
+/
+
+create global temporary table TEST.HTE_BACHELOR_DEGREE
+(
+    GRADUATION_DATE DATE,
+    RN_             NUMBER(10) not null
+        primary key,
+    YEAR_ENTERING   NUMBER(10),
+    DEGREE_ID       NUMBER(19),
+    OVERALL_GRADE   FLOAT(53),
+    PERSON_ID       NUMBER(19),
+    DEGREE_CODE     VARCHAR2(10 char),
+    STUDENT_NUMBER  VARCHAR2(10 char),
+    CITY_STUDY      VARCHAR2(50 char),
+    MAJOR           VARCHAR2(50 char),
+    UNIVERSITY_NAME VARCHAR2(50 char)
+)
+    on commit delete rows
+/
+
+create global temporary table TEST.HTE_ROLE_TBL
+(
+    RN_         NUMBER(10) not null
+        primary key,
+    ROLE_ID     NUMBER(19),
+    ROLE_NAME   VARCHAR2(30 char),
+    DESCRIPTION VARCHAR2(2000 char)
+)
+    on commit delete rows
+/
+
+create global temporary table TEST.HTE_PERSON_TBL
+(
+    BIRTH_DATE    DATE,
+    POST_CODE     VARCHAR2(4 char),
+    RN_           NUMBER(10) not null
+        primary key,
+    PERSON_ID     NUMBER(19),
+    NATIONAL_CODE VARCHAR2(10 char),
+    PHONE         VARCHAR2(15 char),
+    EMAIL         VARCHAR2(50 char),
+    FAMILY        VARCHAR2(50 char),
+    NAME          VARCHAR2(50 char),
+    ADDRESS       VARCHAR2(2000 char)
+)
+    on commit delete rows
+/
+
+create global temporary table TEST.HTE_LEAVE
+(
+    END_DATE           DATE,
+    LEAVE_TYPE         NUMBER(3),
+    REMAINING_DAYS     NUMBER(10),
+    RN_                NUMBER(10) not null
+        primary key,
+    START_DATE         DATE,
+    TOTAL_DAYS         NUMBER(10),
+    TOTAL_DAYS_IN_YEAR NUMBER(10),
+    TOTAL_HOURS        NUMBER(10),
+    YEAR               NUMBER(10),
+    ID                 NUMBER(19),
+    USER_ID            NUMBER(19),
+    DESTINATION        VARCHAR2(50 char),
+    DESCRIPTION        VARCHAR2(2000 char)
+)
+    on commit delete rows
+/
+
+create global temporary table TEST.HTE_TIME_SHEET
+(
+    CONSTANT_MONTHLY_HOURS NUMBER(10),
+    DELAY_ENTRY_TIME       TIMESTAMP(6),
+    ENTRY_TIME             TIMESTAMP(6),
+    EXIT_TIME              TIMESTAMP(6),
+    RN_                    NUMBER(10) not null
+        primary key,
+    START_TIME             TIMESTAMP(6),
+    TIME_SHEET_DATE        DATE,
+    TOTAL_WORKING_HOURS    NUMBER(10),
+    USER_STATUS            NUMBER(3),
+    WEEK_DAY               NUMBER(3),
+    TIME_SHEET_ID          NUMBER(19),
+    TIME_SHEET_TITLE       VARCHAR2(50 char),
+    DESCRIPTION            VARCHAR2(2000 char)
+)
+    on commit delete rows
+/
+
+create global temporary table TEST.HTE_USER_TBL
+(
+    RN_             NUMBER(10) not null
+        primary key,
+    STATUS          NUMBER(1),
+    DEPARTMENT_ID   NUMBER(19),
+    LAST_LOGIN      TIMESTAMP(6),
+    ORGANIZATION_ID NUMBER(19),
+    PERSON_ID       NUMBER(19),
+    USER_ID         NUMBER(19),
+    PASSWORD        VARCHAR2(50 char),
+    USER_NAME       VARCHAR2(50 char)
+)
+    on commit delete rows
+/
+
+create global temporary table TEST.HTE_MASTER_DEGREE
+(
+    GRADUATION_DATE DATE,
+    RN_             NUMBER(10) not null
+        primary key,
+    YEAR_ENTERING   NUMBER(10),
+    DEGREE_ID       NUMBER(19),
+    OVERALL_GRADE   FLOAT(53),
+    PERSON_ID       NUMBER(19),
+    DEGREE_CODE     VARCHAR2(10 char),
+    STUDENT_NUMBER  VARCHAR2(10 char),
+    CITY_STUDY      VARCHAR2(50 char),
+    MAJOR           VARCHAR2(50 char),
+    UNIVERSITY_NAME VARCHAR2(50 char)
+)
+    on commit delete rows
+/
+
+create global temporary table TEST.HTE_WORK_SHIFT
+(
+    RN_             NUMBER(10) not null
+        primary key,
+    WORK_SHIFT_CODE VARCHAR2(4 char),
+    WORK_SHIFT_TYPE NUMBER(3),
+    DEPARTMENT_ID   NUMBER(19),
+    ORGANIZATION_ID NUMBER(19),
+    WORK_SHIFT_ID   NUMBER(19),
+    WORK_SHIFT_NAME VARCHAR2(50 char),
+    DESCRIPTION     VARCHAR2(2000 char)
+)
+    on commit delete rows
+/
+
+create global temporary table TEST.HTE_ASSOCIATED_DEGREE
+(
+    GRADUATION_DATE DATE,
+    RN_             NUMBER(10) not null
+        primary key,
+    YEAR_ENTERING   NUMBER(10),
+    DEGREE_ID       NUMBER(19),
+    OVERALL_GRADE   FLOAT(53),
+    PERSON_ID       NUMBER(19),
+    DEGREE_CODE     VARCHAR2(10 char),
+    STUDENT_NUMBER  VARCHAR2(10 char),
+    CITY_STUDY      VARCHAR2(50 char),
+    MAJOR           VARCHAR2(50 char),
+    UNIVERSITY_NAME VARCHAR2(50 char)
+)
+    on commit delete rows
+/
+
+create global temporary table TEST.HTE_DEDUCTION_BONUS
+(
+    DEDUCTION_BONUS_TYPE   NUMBER(3),
+    RN_                    NUMBER(10) not null
+        primary key,
+    DEDUCTION_BONUS_AMOUNT FLOAT(53),
+    DEDUCTION_BONUS_ID     NUMBER(19),
+    TIME_SHEET_ID          NUMBER(19),
+    DEDUCTION_BONUS_REASON VARCHAR2(50 char),
+    DESCRIPTION            VARCHAR2(2000 char)
+)
+    on commit delete rows
+/
+
+create global temporary table TEST.HTE_TIME_SHIFT
+(
+    DAY_WEEK      NUMBER(3),
+    RN_           NUMBER(10) not null
+        primary key,
+    SHIFT_DATE    DATE,
+    SHIFT_END     TIMESTAMP(6),
+    SHIFT_START   TIMESTAMP(6),
+    TIME_SHIFT_ID NUMBER(19),
+    WORK_SHIFT_ID NUMBER(19),
+    DESCRIPTION   VARCHAR2(2000 char)
+)
+    on commit delete rows
+/
+
+create global temporary table TEST.HTE_MISSION
+(
+    END_DATE      DATE,
+    MISSION_TYPE  NUMBER(3),
+    RN_           NUMBER(10) not null
+        primary key,
+    START_DATE    DATE,
+    TOTAL_DAYS    NUMBER(10),
+    TOTAL_HOURS   NUMBER(10),
+    MISSION_ID    NUMBER(19),
+    MISSION_PLACE VARCHAR2(50 char),
+    MISSION_TASK  VARCHAR2(50 char),
+    MISSION_TITLE VARCHAR2(50 char),
+    DESCRIPTION   VARCHAR2(2000 char)
+)
+    on commit delete rows
+/
+
+create table TEST.MISSION
+(
+    MISSION_ID    NUMBER(19)        not null
+        primary key,
+    DESCRIPTION   VARCHAR2(2000 char),
+    END_DATE      DATE              not null,
+    MISSION_PLACE VARCHAR2(50 char) not null,
+    MISSION_TASK  VARCHAR2(50 char) not null,
+    MISSION_TITLE VARCHAR2(50 char) not null,
+    MISSION_TYPE  NUMBER(3)         not null
+        check (mission_type between 0 and 1),
+    START_DATE    DATE              not null,
+    TOTAL_DAYS    NUMBER(10)        not null,
+    TOTAL_HOURS   NUMBER(10)        not null
+)
+/
+
+create table TEST.ORGANIZATION_TBL
+(
+    ORGANIZATION_ID NUMBER(19)          not null
+        primary key,
+    ADDRESS         VARCHAR2(2000 char) not null,
+    DESCRIPTION     VARCHAR2(2000 char),
+    NAME            VARCHAR2(50 char)   not null,
+    PHONE_NUMBER    VARCHAR2(15 char)   not null
+        constraint UK9OMRQDKPLIGOS1LUERR0YARD7
+            unique,
+    TASK            VARCHAR2(50 char)
+)
+/
+
+create table TEST.DEPARTMENT_TBL
+(
+    DEPARTMENT_ID   NUMBER(19)          not null
+        primary key,
+    ADDRESS         VARCHAR2(2000 char) not null,
+    DESCRIPTION     VARCHAR2(2000 char),
+    NAME            VARCHAR2(50 char)   not null,
+    PHONE_NUMBER    VARCHAR2(15 char)   not null
+        constraint UK30L9YUXECKBGY7VQ13X0P3CGA
+            unique,
+    TASK            VARCHAR2(50 char),
+    ORGANIZATION_ID NUMBER(19)
+        constraint FK903I1K2I80XOHC7FIPN0TFF4T
+            references TEST.ORGANIZATION_TBL
+)
+/
+
+create table TEST.PERSON_TBL
+(
+    PERSON_ID     NUMBER(19)          not null
+        primary key,
+    ADDRESS       VARCHAR2(2000 char) not null,
+    BIRTH_DATE    DATE                not null,
+    EMAIL         VARCHAR2(50 char)   not null,
+    FAMILY        VARCHAR2(50 char)   not null,
+    NAME          VARCHAR2(50 char)   not null,
+    NATIONAL_CODE VARCHAR2(10 char)   not null
+        constraint UKISYMM4OEOY5COW6TNC9XG4HJS
+            unique,
+    PHONE         VARCHAR2(15 char)   not null
+        constraint UK2E3HNP0OCR9M2NIC88AQ5NTFT
+            unique,
+    POST_CODE     VARCHAR2(4 char)    not null
+)
+/
+
+create table TEST.ASSOCIATED_DEGREE
+(
+    DEGREE_ID       NUMBER(19)        not null
+        primary key,
+    CITY_STUDY      VARCHAR2(50 char) not null,
+    DEGREE_CODE     VARCHAR2(10 char) not null
+        constraint UKKJ69VL3SBRABVWX8W9B9B6XIV
+            unique,
+    GRADUATION_DATE DATE              not null,
+    MAJOR           VARCHAR2(50 char) not null,
+    OVERALL_GRADE   FLOAT(53)         not null,
+    STUDENT_NUMBER  VARCHAR2(10 char) not null
+        constraint UKDHWOMJX2KNV0WOT767JGLLDC2
+            unique,
+    UNIVERSITY_NAME VARCHAR2(50 char),
+    YEAR_ENTERING   NUMBER(10)        not null,
+    PERSON_ID       NUMBER(19)
+        constraint FKGKV09MHKR7YTLCKAXRJ4CT5QC
+            references TEST.PERSON_TBL
+)
+/
+
+create table TEST.BACHELOR_DEGREE
+(
+    DEGREE_ID       NUMBER(19)        not null
+        primary key,
+    CITY_STUDY      VARCHAR2(50 char) not null,
+    DEGREE_CODE     VARCHAR2(10 char) not null
+        constraint UK9DP3NXFWITBUAII1VHT64KJFS
+            unique,
+    GRADUATION_DATE DATE              not null,
+    MAJOR           VARCHAR2(50 char) not null,
+    OVERALL_GRADE   FLOAT(53)         not null,
+    STUDENT_NUMBER  VARCHAR2(10 char) not null
+        constraint UKOL6PT78IJ06YY59AOC0IHEY07
+            unique,
+    UNIVERSITY_NAME VARCHAR2(50 char),
+    YEAR_ENTERING   NUMBER(10)        not null,
+    PERSON_ID       NUMBER(19)
+        constraint FK8HWXXVHIANNXEHK0IB0AOR26D
+            references TEST.PERSON_TBL
+)
+/
+
+create table TEST.BANK_ACCOUNT_TBL
+(
+    BANK_ACCOUNT_ID NUMBER(19)        not null
+        primary key,
+    CCV2            VARCHAR2(4 char)  not null,
+    CARD_NUMBER     VARCHAR2(16 char) not null,
+    EXPIRED_DATE    TIMESTAMP(6)      not null,
+    NAME            VARCHAR2(50 char) not null,
+    SHEBA_CODE      VARCHAR2(26 char) not null,
+    PERSON_ID       NUMBER(19)
+        constraint FKOB29BP9TLGE152GE2QABTM6BF
+            references TEST.PERSON_TBL
+)
+/
+
+create table TEST.DIPLOMA_DEGREE
+(
+    DEGREE_ID       NUMBER(19)        not null
+        primary key,
+    CITY_STUDY      VARCHAR2(50 char) not null,
+    DEGREE_CODE     VARCHAR2(10 char) not null
+        constraint UKS5LGH6V3YN1YOU6JHW58KQ8IK
+            unique,
+    GRADUATION_DATE DATE              not null,
+    MAJOR           VARCHAR2(50 char) not null,
+    OVERALL_GRADE   FLOAT(53)         not null,
+    STUDENT_NUMBER  VARCHAR2(10 char) not null
+        constraint UKIBS24K4P0US9PSHKVSA6691RU
+            unique,
+    UNIVERSITY_NAME VARCHAR2(50 char),
+    YEAR_ENTERING   NUMBER(10)        not null,
+    SCHOOL_NAME     VARCHAR2(50 char) not null,
+    PERSON_ID       NUMBER(19)
+        constraint FK6YOJQID4873XQXRTMOJP1JIJV
+            references TEST.PERSON_TBL
+)
+/
+
+create table TEST.DRIVING_LICENSE
+(
+    DRIVING_LICENSE_ID NUMBER(19)        not null
+        primary key,
+    CREATION_DATE      TIMESTAMP(6)      not null,
+    LEVEL_LICENSE      NUMBER(1)
+        check (level_license in (0, 1)),
+    SERIAL_NUMBER      VARCHAR2(10 char) not null,
+    VALIDITY_PERIOD    DATE              not null,
+    PERSON_ID          NUMBER(19)
+        constraint UK7ACMQD5G890ASLO152PA0F9FE
+            unique
+        constraint FK5FSVVFDKA4NT7N1KSPAR94N5V
+            references TEST.PERSON_TBL
+)
+/
+
+create table TEST.MASTER_DEGREE
+(
+    DEGREE_ID       NUMBER(19)        not null
+        primary key,
+    CITY_STUDY      VARCHAR2(50 char) not null,
+    DEGREE_CODE     VARCHAR2(10 char) not null
+        constraint UKNOI27KDCNDVKN9MEGT5S6UTF3
+            unique,
+    GRADUATION_DATE DATE              not null,
+    MAJOR           VARCHAR2(50 char) not null,
+    OVERALL_GRADE   FLOAT(53)         not null,
+    STUDENT_NUMBER  VARCHAR2(10 char) not null
+        constraint UK4JN06TAUFOFUK423C96AP12C3
+            unique,
+    UNIVERSITY_NAME VARCHAR2(50 char),
+    YEAR_ENTERING   NUMBER(10)        not null,
+    PERSON_ID       NUMBER(19)
+        constraint FKMN91MR87A1AD8003YCXXPVHNE
+            references TEST.PERSON_TBL
+)
+/
+
+create table TEST.MEDICAL_HISTORY_TBL
+(
+    MEDICAL_HISTORY_ID NUMBER(19)        not null
+        primary key,
+    ILLNESS            VARCHAR2(50 char) not null,
+    PREVIOUS_ILLNESS   VARCHAR2(50 char),
+    PERSON_ID          NUMBER(19)
+        constraint FKSSPXIY4LNINHHRRGE0Q2TYRC8
+            references TEST.PERSON_TBL
+)
+/
+
+create table TEST.MILITARY_SERVICE_CARD_TBL
+(
+    MILITARY_SERVICE_CARD_ID NUMBER(19) not null
+        primary key,
+    CREATION_DATE            DATE       not null,
+    END_DATE                 DATE       not null,
+    START_DATE               DATE       not null,
+    PERSON_ID                NUMBER(19)
+        constraint UK4QVD20W8YRBH6KFAU5ORHEOPH
+            unique
+        constraint FKQUNYWAS2YCOD2WG2H7ERW9MXW
+            references TEST.PERSON_TBL
+)
+/
+
+create table TEST.PHD_DEGREE
+(
+    DEGREE_ID       NUMBER(19)        not null
+        primary key,
+    CITY_STUDY      VARCHAR2(50 char) not null,
+    DEGREE_CODE     VARCHAR2(10 char) not null
+        constraint UKAIN2G83600DNUWLXVPU2GL32L
+            unique,
+    GRADUATION_DATE DATE              not null,
+    MAJOR           VARCHAR2(50 char) not null,
+    OVERALL_GRADE   FLOAT(53)         not null,
+    STUDENT_NUMBER  VARCHAR2(10 char) not null
+        constraint UK3Q2VRAXFVSCMG9KGYXD2BFF6P
+            unique,
+    UNIVERSITY_NAME VARCHAR2(50 char),
+    YEAR_ENTERING   NUMBER(10)        not null,
+    PERSON_ID       NUMBER(19)
+        constraint FKT9F5KOYR8C63IDQ8XY4TQQUSQ
+            references TEST.PERSON_TBL
+)
+/
+
+create table TEST.ROLE_TBL
+(
+    ROLE_ID     NUMBER(19)        not null
+        primary key,
+    DESCRIPTION VARCHAR2(2000 char),
+    ROLE_NAME   VARCHAR2(30 char) not null
+)
+/
+
+create table TEST.PERMISSION_TBL
+(
+    PERMISSION_ID NUMBER(19)         not null
+        primary key,
+    PERMISSION    VARCHAR2(100 char) not null
+        constraint UK61R137RJML9POJCBQAT55RKX2
+            unique,
+    ROLE_ID       NUMBER(19)
+        constraint FK2X71WVWY1CAMW0QH63VH80UQ4
+            references TEST.ROLE_TBL
+)
+/
+
+create table TEST.SECTION_TBL
+(
+    SECTION_ID     NUMBER(19)          not null
+        primary key,
+    ACCESS_LEVEL   NUMBER(1)           not null
+        check (access_level in (0, 1)),
+    ADDRESS        VARCHAR2(2000 char) not null,
+    INTERNAL_CODE  VARCHAR2(4 char)    not null,
+    NAME           VARCHAR2(50 char)   not null,
+    PHONE_NUMBER   VARCHAR2(15 char)   not null
+        constraint UKIV7PYLNUXUPOU9SYJ7AAMBGAF
+            unique,
+    SECTION_NUMBER VARCHAR2(5 char)    not null,
+    DEPARTMENT_ID  NUMBER(19)
+        constraint FKK4G1I7I7ACJHC5F53606M7R8G
+            references TEST.DEPARTMENT_TBL
+)
+/
+
+create table TEST.TIME_SHEET
+(
+    TIME_SHEET_ID          NUMBER(19)        not null
+        primary key,
+    CONSTANT_MONTHLY_HOURS NUMBER(10)        not null,
+    WEEK_DAY               NUMBER(3)         not null
+        check (week_day between 0 and 6),
+    DELAY_ENTRY_TIME       TIMESTAMP(6),
+    DESCRIPTION            VARCHAR2(2000 char),
+    ENTRY_TIME             TIMESTAMP(6)      not null,
+    EXIT_TIME              TIMESTAMP(6)      not null,
+    START_TIME             TIMESTAMP(6)      not null,
+    TIME_SHEET_DATE        DATE              not null,
+    TIME_SHEET_TITLE       VARCHAR2(50 char) not null,
+    TOTAL_WORKING_HOURS    NUMBER(10)        not null,
+    USER_STATUS            NUMBER(3)         not null
+        check (user_status between 0 and 1)
+)
+/
+
+create table TEST.DEDUCTION_BONUS
+(
+    DEDUCTION_BONUS_ID     NUMBER(19)        not null
+        primary key,
+    DEDUCTION_BONUS_AMOUNT FLOAT(53)         not null,
+    DEDUCTION_BONUS_REASON VARCHAR2(50 char) not null,
+    DEDUCTION_BONUS_TYPE   NUMBER(3)         not null
+        check (deduction_bonus_type between 0 and 0),
+    DESCRIPTION            VARCHAR2(2000 char),
+    TIME_SHEET_ID          NUMBER(19)
+        constraint FK5MH2PG85G75YCFVCPLIHODERG
+            references TEST.TIME_SHEET
+)
+/
+
+create table TEST.USER_TBL
+(
+    USER_ID         NUMBER(19)        not null
+        primary key,
+    LAST_LOGIN      TIMESTAMP(6)      not null,
+    PASSWORD        VARCHAR2(50 char) not null,
+    STATUS          NUMBER(1)         not null
+        check (status in (0, 1)),
+    USER_NAME       VARCHAR2(50 char) not null
+        constraint UKR0S0TXS2BQVS26PNFUYE8NWYT
+            unique,
+    DEPARTMENT_ID   NUMBER(19)
+        constraint FK3YM8QER0CPTLWFB8J2BX6L8GU
+            references TEST.DEPARTMENT_TBL,
+    ORGANIZATION_ID NUMBER(19)
+        constraint FK9TLMT05R0BTLIPEWO0DI85RBM
+            references TEST.ORGANIZATION_TBL,
+    PERSON_ID       NUMBER(19)
+        constraint UK13KEL1JST3WVRK9Y1GPMEXNCR
+            unique
+        constraint FKCSTY67VJ6UB2GRIJPJQ74PG1L
+            references TEST.PERSON_TBL
+)
+/
+
+create table TEST.EXTRA_SHIFT_TIME
+(
+    EXTRA_SHIFT_TIME_ID NUMBER(19)        not null
+        primary key,
+    WEEK_DAY            NUMBER(3)         not null
+        check (week_day between 0 and 6),
+    DESCRIPTION         VARCHAR2(2000 char),
+    EXTRA_SHIFT_DATE    DATE              not null,
+    EXTRA_SHIFT_END     TIMESTAMP(6)      not null,
+    EXTRA_SHIFT_START   TIMESTAMP(6)      not null,
+    EXTRA_SHIFT_TASK    VARCHAR2(50 char) not null,
+    EXTRA_SHIFT_TYPE    NUMBER(3)         not null
+        check (extra_shift_type between 0 and 0),
+    USER_ID             NUMBER(19)
+        constraint FK7J3Q204AD3KRU041KWPGMWOOS
+            references TEST.USER_TBL
+)
+/
+
+create table TEST.LEAVE
+(
+    ID                 NUMBER(19)        not null
+        primary key,
+    DESCRIPTION        VARCHAR2(2000 char),
+    DESTINATION        VARCHAR2(50 char) not null,
+    END_DATE           DATE              not null,
+    LEAVE_TYPE         NUMBER(3)         not null
+        check (leave_type between 0 and 1),
+    REMAINING_DAYS     NUMBER(10)        not null,
+    START_DATE         DATE              not null,
+    TOTAL_DAYS         NUMBER(10)        not null,
+    TOTAL_HOURS        NUMBER(10)        not null,
+    TOTAL_DAYS_IN_YEAR NUMBER(10)        not null,
+    YEAR               NUMBER(10)        not null,
+    USER_ID            NUMBER(19)
+        constraint FKR50UMMXE4L9OURDBLB6MA15A7
+            references TEST.USER_TBL
+)
+/
+
+create table TEST.SECTION_USER_TBL
+(
+    SECTION_NAME NUMBER(19) not null
+        constraint FK_SECTION_USER
+            references TEST.SECTION_TBL,
+    USER_NAME    NUMBER(19) not null
+        constraint FK_INVERSE_SECTION_USER
+            references TEST.USER_TBL,
+    primary key (SECTION_NAME, USER_NAME)
+)
+/
+
+create table TEST.USER_MISSION
+(
+    USER_ID    NUMBER(19) not null
+        constraint FK_USER_MISSION
+            references TEST.MISSION,
+    MISSION_ID NUMBER(19) not null
+        constraint FK_INVERSE_USER_MISSION
+            references TEST.USER_TBL
+)
+/
+
+create table TEST.USER_ROLE
+(
+    USER_ID NUMBER(19) not null
+        constraint FK_USER_ROLE
+            references TEST.ROLE_TBL,
+    ROLE_ID NUMBER(19) not null
+        constraint FK_INVERSE_USER_ROLE
+            references TEST.USER_TBL
+)
+/
+
+create table TEST.WORK_HISTORY_TBL
+(
+    WORK_HISTORY_ID    NUMBER(19)          not null
+        primary key,
+    COLLABORATION_TYPE NUMBER(1)           not null
+        check (collaboration_type in (0, 1)),
+    END_DATE           DATE                not null,
+    JOB_PROMOTION      VARCHAR2(50 char),
+    JOB_TITLE          VARCHAR2(50 char)   not null,
+    ORGANIZATION_NAME  VARCHAR2(50 char)   not null,
+    RESPONSIBILITY     VARCHAR2(2000 char) not null,
+    START_DATE         DATE                not null,
+    PERSON_ID          NUMBER(19)
+        constraint FK9PSTJTLINJA07BUATS0YHM75Y
+            references TEST.PERSON_TBL
+)
+/
+
+create table TEST.WORK_SHIFT
+(
+    WORK_SHIFT_ID   NUMBER(19)        not null
+        primary key,
+    DESCRIPTION     VARCHAR2(2000 char),
+    WORK_SHIFT_NAME VARCHAR2(50 char) not null,
+    WORK_SHIFT_CODE VARCHAR2(4 char)  not null
+        constraint UKI2XPTOGVGC7PQR1WN81ML22UP
+            unique,
+    WORK_SHIFT_TYPE NUMBER(3)         not null
+        check (work_shift_type between 0 and 3),
+    DEPARTMENT_ID   NUMBER(19)
+        constraint FKTMN3LDWNXC9VEJ74G3LJ5OIL8
+            references TEST.DEPARTMENT_TBL,
+    ORGANIZATION_ID NUMBER(19)
+        constraint FKGIA3E1HPVOHVHOHLLUI3FKN8P
+            references TEST.ORGANIZATION_TBL
+)
+/
+
+create table TEST.SECTION_WORK_SHIFT
+(
+    SECTION_ID    NUMBER(19) not null
+        constraint FK_SECTION_WORK_SHIFT
+            references TEST.WORK_SHIFT,
+    WORK_SHIFT_ID NUMBER(19) not null
+        constraint FK_INVERSE_SECTION_WORK_SHIFT
+            references TEST.SECTION_TBL
+)
+/
+
+create table TEST.TIME_SHIFT
+(
+    TIME_SHIFT_ID NUMBER(19)   not null
+        primary key,
+    DAY_WEEK      NUMBER(3)    not null
+        check (day_week between 0 and 6),
+    DESCRIPTION   VARCHAR2(2000 char),
+    SHIFT_DATE    DATE         not null,
+    SHIFT_END     TIMESTAMP(6) not null,
+    SHIFT_START   TIMESTAMP(6) not null,
+    WORK_SHIFT_ID NUMBER(19)
+        constraint FKTE9CIBA4QJY532RD31CG19RBL
+            references TEST.WORK_SHIFT
+)
+/
+
+create table TEST.USER_TIME_SHIFT
+(
+    USER_ID       NUMBER(19) not null
+        constraint FK_USER_TIME_SHIFT
+            references TEST.TIME_SHIFT,
+    TIME_SHIFT_ID NUMBER(19) not null
+        constraint FK_INVERSE_USER_TIME_SHIFT
+            references TEST.USER_TBL
+)
+/
+
+create table TEST.USER_WORK_SHIFT
+(
+    USER_ID       NUMBER(19) not null
+        constraint FK_USER_WORK_SHIFT
+            references TEST.WORK_SHIFT,
+    WORK_SHIFT_ID NUMBER(19) not null
+        constraint FK_INVERSE_USER_WORK_SHIFT
+            references TEST.USER_TBL
+)
+/
