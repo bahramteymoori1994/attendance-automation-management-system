@@ -35,7 +35,6 @@ public class Department {
     @Column(name = "task", length = 50)
     private String task;
 
-    //todo check relation
     @ManyToOne
     @JoinColumn(name = "ORGANIZATION_ID", referencedColumnName = "organization_id")
     private Organization organization;

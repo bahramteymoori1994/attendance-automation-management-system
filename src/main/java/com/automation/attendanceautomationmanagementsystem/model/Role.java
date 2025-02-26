@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -40,5 +41,5 @@ public class Role {
     @JoinTable(name = "USER_ROLE", joinColumns = @JoinColumn(name = "USER_ID"),
     inverseJoinColumns = @JoinColumn(name = "ROLE_ID"), foreignKey = @ForeignKey(name = "FK_USER_ROLE"),
     inverseForeignKey = @ForeignKey(name = "FK_INVERSE_USER_ROLE"))
-    private List<User> users;
+    private List<User> users = new ArrayList<>();
 }

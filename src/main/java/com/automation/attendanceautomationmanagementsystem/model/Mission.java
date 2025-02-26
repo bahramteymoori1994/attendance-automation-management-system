@@ -6,6 +6,7 @@ import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "missionEntity")
@@ -56,5 +57,5 @@ public class Mission
     @JoinTable(name = "USER_MISSION", joinColumns = @JoinColumn(name = "USER_ID"),
     inverseJoinColumns = @JoinColumn(name = "MISSION_ID"), foreignKey = @ForeignKey(name = "FK_USER_MISSION"),
     inverseForeignKey = @ForeignKey(name = "FK_INVERSE_USER_MISSION"))
-    private List<User> users;
+    private List<User> users = new ArrayList<>();
 }

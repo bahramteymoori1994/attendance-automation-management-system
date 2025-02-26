@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -54,6 +55,5 @@ public class Section {
             foreignKey = @ForeignKey(name = "fk_section_user"),
             inverseForeignKey = @ForeignKey(name = "fk_inverse_section_user")
     )
-    private Set<User> userSet;
-
+    private Set<User> userSet = new HashSet<>();
 }

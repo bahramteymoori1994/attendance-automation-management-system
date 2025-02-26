@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "workShiftEntity")
@@ -46,7 +47,7 @@ public class WorkShift
     @JoinTable(name = "USER_WORK_SHIFT", joinColumns = @JoinColumn(name = "USER_ID"),
     inverseJoinColumns = @JoinColumn(name = "WORK_SHIFT_ID"), foreignKey = @ForeignKey(name = "FK_USER_WORK_SHIFT"),
     inverseForeignKey = @ForeignKey(name = "FK_INVERSE_USER_WORK_SHIFT"))
-    private List<User> users;
+    private List<User> users = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "ORGANIZATION_ID", referencedColumnName = "organization_id")
@@ -56,5 +57,5 @@ public class WorkShift
     @JoinTable(name = "SECTION_WORK_SHIFT", joinColumns = @JoinColumn(name = "SECTION_ID"),
     inverseJoinColumns = @JoinColumn(name = "WORK_SHIFT_ID"), foreignKey = @ForeignKey(name = "FK_SECTION_WORK_SHIFT"),
     inverseForeignKey = @ForeignKey(name = "FK_INVERSE_SECTION_WORK_SHIFT"))
-    private List<Section> sections;
+    private List<Section> sections = new ArrayList<>();
 }

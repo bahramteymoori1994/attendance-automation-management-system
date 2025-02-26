@@ -30,7 +30,6 @@ public class User {
     @Column(name = "user_name", unique = true, nullable = false, length = 50)
     private String username;
 
-    //    @JsonIgnore
     @Column(name = "password", nullable = false, length = 50)
     private String password;
 
@@ -39,13 +38,6 @@ public class User {
 
     @Column(name = "last_login", nullable = false)
     private LocalDateTime lastLogin;
-
-//    public void addRole(Role role){
-//        if(roleSet == null){
-//            roleSet = new HashSet<>();
-//        }
-//        roleSet.add(role);
-//    }
 
     @ManyToOne
     @JoinColumn(name = "ORGANIZATION_ID", referencedColumnName = "organization_id")
