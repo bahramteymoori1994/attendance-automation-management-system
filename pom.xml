@@ -70,7 +70,12 @@
             <groupId>org.hibernate.orm</groupId>
             <artifactId>hibernate-envers</artifactId>
         </dependency>
-
+        <!-- https://mvnrepository.com/artifact/com.tosan.tools/jalali-calendar -->
+        <dependency>
+            <groupId>com.tosan.tools</groupId>
+            <artifactId>jalali-calendar</artifactId>
+            <version>1.0.2</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
