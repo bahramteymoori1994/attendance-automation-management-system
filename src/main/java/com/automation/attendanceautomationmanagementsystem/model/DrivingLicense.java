@@ -23,14 +23,14 @@ public class DrivingLicense
     @Column(name = "DRIVING_LICENSE_ID")
     private Long id;
 
-    @Column(name = "serial_number", nullable = false, length = 10)
+    @Column(name = "serial_number", unique = true, nullable = false, length = 10)
     private String serialNumber;
 
     @Column(name = "validity_period", nullable = false)
     private LocalDate validityPeriod;
 
     @Column(name = "creation_date", nullable = false)
-    private LocalDateTime creationDate;
+    private LocalDate creationDate;
 
     @Column(name = "level_license")
     private Boolean levelLicense;

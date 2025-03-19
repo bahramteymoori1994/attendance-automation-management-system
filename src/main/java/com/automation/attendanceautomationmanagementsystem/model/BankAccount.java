@@ -25,10 +25,10 @@ public class BankAccount {
     @Column(name = "name", nullable = false, length = 50)
     private String name;
 
-    @Column(name = "sheba_code", nullable = false, length = 26)
+    @Column(name = "sheba_code",unique = true, nullable = false, length = 26)
     private String shebaCode;
 
-    @Column(name = "card_number", nullable = false, length = 16)
+    @Column(name = "card_number",unique = true, nullable = false, length = 16)
     private String cardNumber;
 
     @Column(name = "CCV2", nullable = false, length = 4)
