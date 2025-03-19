@@ -18,13 +18,13 @@ public class RoleServiceImpl extends AbstractBaseServiceImpl<Role, RoleRepositor
     }
 
 
-    public List<Role> findByUser(User user) {
-        return roleRepository.findByUsersSetContaining(user);
-    }
-
-    public List<Role> findByUserName(String userName) {
-        return roleRepository.findByUsersSetRoles(userName);
-    }
+//    public List<Role> findByUser(User user) {
+//        return roleRepository.findByUsersSetContaining(user);
+//    }
+//
+//    public List<Role> findByUserName(String userName) {
+//        return roleRepository.findByUsersSetRoles(userName);
+//    }
 
     public Role findByName(String roleName) {
         return roleRepository.findByName(roleName);

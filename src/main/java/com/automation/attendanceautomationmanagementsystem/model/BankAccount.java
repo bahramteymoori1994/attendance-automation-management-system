@@ -32,7 +32,7 @@ public class BankAccount {
     private String cardNumber;
 
     @Column(name = "CCV2", nullable = false, length = 4)
-    private String CCV2;
+    private String ccv2;
 
     @Column(name = "expired_date", nullable = false)
     private LocalDateTime expiredDate;
