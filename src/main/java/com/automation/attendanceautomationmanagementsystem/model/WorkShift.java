@@ -43,7 +43,7 @@ public class WorkShift
     @JoinColumn(name = "DEPARTMENT_ID", referencedColumnName = "department_id")
     private Department department;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinTable(name = "USER_WORK_SHIFT", joinColumns = @JoinColumn(name = "USER_ID"),
     inverseJoinColumns = @JoinColumn(name = "WORK_SHIFT_ID"), foreignKey = @ForeignKey(name = "FK_USER_WORK_SHIFT"),
     inverseForeignKey = @ForeignKey(name = "FK_INVERSE_USER_WORK_SHIFT"))
@@ -53,7 +53,7 @@ public class WorkShift
     @JoinColumn(name = "ORGANIZATION_ID", referencedColumnName = "organization_id")
     private Organization organization;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinTable(name = "SECTION_WORK_SHIFT", joinColumns = @JoinColumn(name = "SECTION_ID"),
     inverseJoinColumns = @JoinColumn(name = "WORK_SHIFT_ID"), foreignKey = @ForeignKey(name = "FK_SECTION_WORK_SHIFT"),
     inverseForeignKey = @ForeignKey(name = "FK_INVERSE_SECTION_WORK_SHIFT"))

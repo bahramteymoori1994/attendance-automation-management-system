@@ -37,7 +37,7 @@ public class Role {
     @Column(name = "description", length = 2000)
     private String description;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinTable(name = "USER_ROLE", joinColumns = @JoinColumn(name = "USER_ID"),
     inverseJoinColumns = @JoinColumn(name = "ROLE_ID"), foreignKey = @ForeignKey(name = "FK_USER_ROLE"),
     inverseForeignKey = @ForeignKey(name = "FK_INVERSE_USER_ROLE"))

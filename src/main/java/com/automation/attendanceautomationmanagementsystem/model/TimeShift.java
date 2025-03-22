@@ -48,7 +48,7 @@ public class TimeShift
     @JoinColumn(name = "WORK_SHIFT_ID", referencedColumnName = "WORK_SHIFT_ID")
     private WorkShift workShift;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinTable(name = "USER_TIME_SHIFT", joinColumns = @JoinColumn(name = "USER_ID"),
     inverseJoinColumns = @JoinColumn(name = "TIME_SHIFT_ID"), foreignKey = @ForeignKey(name = "FK_USER_TIME_SHIFT"),
     inverseForeignKey = @ForeignKey(name = "FK_INVERSE_USER_TIME_SHIFT"))
