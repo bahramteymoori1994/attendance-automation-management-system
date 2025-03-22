@@ -35,10 +35,10 @@ public class BankAccountServiceImpl extends AbstractBaseServiceImpl<BankAccount,
         return bankAccountRepository.existsByCardNumber(cardNumber);
     }
     public List<BankAccount> findByCCV2(String ccv2){
-        return bankAccountRepository.findByCCV2(ccv2);
+        return bankAccountRepository.findByCcv2(ccv2);
     }
     public boolean existsByCCV2(String ccv2){
-        return bankAccountRepository.existsByCCV2(ccv2);
+        return bankAccountRepository.existsByCcv2(ccv2);
     }
     public List<BankAccount> findByExpiredDate(LocalDateTime expiredDate){
         return bankAccountRepository.findByExpiredDate(expiredDate);

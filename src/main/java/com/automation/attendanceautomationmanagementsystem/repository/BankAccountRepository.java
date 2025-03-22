@@ -15,8 +15,8 @@ public interface BankAccountRepository extends JpaRepository<BankAccount, Long> 
     BankAccount findByCardNumber(String cardNumber);
     BankAccount findByCardNumberContains(String cardNumber);
     boolean existsByCardNumber(String cardNumber);
-    List<BankAccount> findByCCV2(String ccv2);
-    boolean existsByCCV2(String ccv2);
+    List<BankAccount> findByCcv2(String ccv2);
+    boolean existsByCcv2(String ccv2);
     List<BankAccount> findByExpiredDate(LocalDateTime expiredDate);
     BankAccount findBankAccountsByPerson(Person person);
 }
