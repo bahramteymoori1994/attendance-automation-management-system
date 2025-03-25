@@ -47,7 +47,7 @@ public class Section {
     @JoinColumn(name = "DEPARTMENT_ID", referencedColumnName = "department_id")
     private Department department;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinTable(
             name = "section_user_tbl",
             joinColumns = @JoinColumn(name = "section_name"),
