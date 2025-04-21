@@ -1,5 +1,6 @@
 package com.automation.attendanceautomationmanagementsystem.controller;
 
+import com.automation.attendanceautomationmanagementsystem.exception.ServiceException;
 import com.automation.attendanceautomationmanagementsystem.service.impl.AbstractBaseServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -37,7 +38,7 @@ public abstract class AbstractBaseController<E, S extends AbstractBaseServiceImp
 
     @GetMapping("/findById/{id}")
     @ResponseStatus(value = HttpStatus.OK)
-    public E findById(@PathVariable Long id)
+    public E findById(@PathVariable Long id) throws ServiceException
     {
         return service.findById(id);
     }

@@ -1,5 +1,6 @@
 package com.automation.attendanceautomationmanagementsystem.service.impl;
 
+import com.automation.attendanceautomationmanagementsystem.exception.ServiceException;
 import com.automation.attendanceautomationmanagementsystem.service.AbstractBaseService;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -29,7 +30,7 @@ public abstract class AbstractBaseServiceImpl<E, R extends JpaRepository<E, Long
     }
 
     @Override
-    public E findById(Long id) {
+    public E findById(Long id) throws ServiceException {
         return repository.findById(id).orElse(null);
     }
 

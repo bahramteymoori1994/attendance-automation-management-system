@@ -1,5 +1,6 @@
 package com.automation.attendanceautomationmanagementsystem.service.impl;
 
+import com.automation.attendanceautomationmanagementsystem.exception.ServiceException;
 import com.automation.attendanceautomationmanagementsystem.model.Person;
 import com.automation.attendanceautomationmanagementsystem.repository.PersonRepository;
 import org.springframework.stereotype.Service;
@@ -16,13 +17,35 @@ public class PersonServiceImpl extends AbstractBaseServiceImpl<Person, PersonRep
         this.personRepository = personRepository;
     }
 
-    public List<Person> findByName(String Name){
-        return personRepository.findByName(Name);
+    @Override
+    public Person findById(Long id) throws ServiceException {
+        return personRepository.findById(id).orElseThrow(() -> new ServiceException("Person not found"));
     }
-    public List<Person> findByFamily(String family){
-        return personRepository.findByFamily(family);
+
+    public List<Person> findByName(String name) throws ServiceException
+    {
+        if( personRepository.findByName(name).equals(name) )
+        {
+            return personRepository.findByName(name);
+        }
+        else
+        {
+            throw new ServiceException("Person name not found...!");
+        }
     }
-    public Person findByNationalCode(String nationalCode){
+    public List<Person> findByFamily(String family) throws ServiceException
+    {
+        if( personRepository.findByFamily(family).equals(family) )
+        {
+            return personRepository.findByFamily(family);
+        }
+        else
+        {
+            throw new ServiceException("Person family not found...!");
+        }
+    }
+    public Person findByNationalCode(String nationalCode) throws ServiceException
+    {
         return personRepository.findByNationalCode(nationalCode);
     }
     public List<Person> findByBirthdate(LocalDate birthdate){
